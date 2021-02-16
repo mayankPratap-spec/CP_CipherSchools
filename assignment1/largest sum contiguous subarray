@@ -1,0 +1,24 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int kadane(const vector<int> &vec){
+	int res=vec[0];
+	int maxsum=vec[0];
+	
+	for(int i=1;i<vec.size();i++){
+		maxsum=max(maxsum+vec[i],vec[i]);
+		res=max(res,maxsum);
+	}
+	return res;
+}
+
+int main(){	
+	int n;
+	cin>>n;
+	vector<int> vec(n);
+	for(int i=0;i<n;i++){
+		cin>>vec[i];
+	}
+	cout<<kadane(vec);
+	return 0;
+}
